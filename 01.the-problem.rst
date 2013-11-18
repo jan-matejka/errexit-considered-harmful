@@ -1,0 +1,19 @@
+#################################
+set -o errexit considered harmful
+#################################
+
+The problem
+###########
+
+call tree::
+
+01  +  main
+    |
+02  +--- fx
+    |
+03  +--- fy && fz     ; compound command
+         |
+04       + f_failing
+         |
+05       + f_other    ; the "errexit canceling context" from 03 is still
+                      ; on and can't be canceled (= errexit enabled)
