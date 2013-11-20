@@ -1,7 +1,5 @@
 #! /bin/sh
 
-set -e
-
 . ./lib.sh
 
 fy_fixed() {
