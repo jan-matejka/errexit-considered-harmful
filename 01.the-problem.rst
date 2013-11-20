@@ -19,6 +19,10 @@ call tree::
                       ; on and can't be canceled (= errexit enabled)
 
 
+And later, eg when refactoring, this results in Action at distance [4]_
+anti-pattern.
+
+
 .. [1] Posix issue tracker http://austingroupbugs.net/view.php?id=537
 
 .. [2] why does errexit exist in its current utterly useless form?
@@ -26,3 +30,5 @@ call tree::
 
 .. [3] Some poor fellow on Stack Overflow
        http://stackoverflow.com/questions/13870291/trouble-with-errexit-in-bash
+
+.. [4] http://en.wikipedia.org/wiki/Action_at_a_distance_(computer_programming)
