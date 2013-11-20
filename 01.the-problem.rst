@@ -11,12 +11,16 @@ call tree::
         |
     02  +--- fx
         |
-    03  +--- fy && fz     ; compound command
+    03  +--- fy && fz     ; compound command creating "errexit
+             |            ; cancelling context" -> main will continue
+             |            ; execution when fy fails
              |
     04       + f_failing
              |
     05       + f_other    ; the "errexit canceling context" from 03 is still
-                      ; on and can't be canceled (= errexit enabled)
+                          ; on and can't be canceled
+                          ; -> if f_failing fails, the fy will still
+                          ; continue executing
 
 
 And later, eg when refactoring, this results in Action at distance [4]_
