@@ -9,7 +9,7 @@ fx() {
 }
 
 fy() {
-    f_failing
+    f_failing # behaviour here depends on how fy is called
     echo "fy: The Cake is a Lie!"
 }
 

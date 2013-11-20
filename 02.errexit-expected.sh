@@ -7,7 +7,7 @@ set -e
 
 main() {
     fx
-    fy
+    fy # errexit will kick in inside fy and script execution ends here
     fz
 }
 
