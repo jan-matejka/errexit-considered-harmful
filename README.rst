@@ -12,5 +12,5 @@ are files in format::
 
 Where sh files are executable examples.
 
-You can find the relevant references in `slide 2
-<./01.the-problem.rst>`_
+You can find the relevant references in `slide 4
+<./04.the-problem.rst>`_

@@ -1,0 +1,40 @@
+#################################
+set -o errexit considered harmful
+#################################
+
+The problem
+###########
+
+call tree in 02.errexit-broken.sh::
+
+    01  +  main
+        |
+    02  +-- echo "main: entering"
+        |
+    03  +-- if authenticate
+        |   # now part of an `if` keyword. Effectivelly forcing all the
+        |   # code called by `authenticate` run with `set +e`
+        |
+    04  +------ test `prompt_user` = "Alice"
+        |       # contrary to common sense, this *still* is
+        |       # part of the `if` keyword
+        |
+    05  +-- then
+        |
+    06  +-- echo "lanuching missiles"
+        |
+    07  +-- fi
+
+
+Therefore using errexit can easily result into Action at distance [4]_
+anti-pattern.
+
+.. [1] Posix issue tracker http://austingroupbugs.net/view.php?id=537
+
+.. [2] why does errexit exist in its current utterly useless form?
+       http://lists.gnu.org/archive/html/bug-bash/2012-12/msg00093.html
+
+.. [3] Some poor fellow on Stack Overflow
+       http://stackoverflow.com/questions/13870291/trouble-with-errexit-in-bash
+
+.. [4] http://en.wikipedia.org/wiki/Action_at_a_distance_(computer_programming)
