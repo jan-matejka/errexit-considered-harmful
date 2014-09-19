@@ -2,13 +2,24 @@
 
 set -e
 
-. ./lib.sh
+prompt_user() {
+    echo "Bob"
+}
+
+authenticate() {
+    test `prompt_user` = "Alice"
+
+    echo "Authenticated"
+}
 
 main() {
-    fx
-    fy && fz # compoud command creating "errexit canceling context"
-             # prevents errexit from kicking in inside fy (not of fy
-             # itself in here) so full fy will be executed
+    echo "main: entering"
+
+    if authenticate ; then
+        echo "launching missiles"
+    else
+        echo "authentication failed"
+    fi
 }
 
 main "$@"

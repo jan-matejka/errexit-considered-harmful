@@ -1,17 +1,23 @@
 #! /bin/sh
 
-. ./lib.sh
+prompt_user() {
+    echo "Bob"
+}
 
-fy_fixed() {
-    f_failing || return 1 # only solution: explicit checking for
-                          # failures and propagation
-    echo "fy: The Cake is a Lie!"
-    return 0
+authenticate() {
+    test `prompt_user` = "Alice" || return 1
+
+    echo "Authenticated"
 }
 
 main() {
-    fx
-    fy_fixed && fz
+    echo "main: entering"
+
+    if authenticate ; then
+        echo "launching missiles"
+    else
+        echo "authentication failed"
+    fi
 }
 
 main "$@"

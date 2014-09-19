@@ -2,13 +2,21 @@
 
 set -e
 
-. ./lib.sh
+prompt_user() {
+    echo "Bob"
+}
 
+authenticate() {
+    test `prompt_user` = "Alice"
+
+    echo "Authenticated"
+}
 
 main() {
-    fx
-    fy # errexit will kick in inside fy and script execution ends here
-    fz
+    echo "main: entering"
+
+    authenticate
+    echo "launching missiles"
 }
 
 main "$@"
