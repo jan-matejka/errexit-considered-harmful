@@ -2,9 +2,6 @@
 set -o errexit considered harmful
 #################################
 
-If you are familiar with the concept of "X considered harmful" you
-should know what this is about. If not, go figure.
-
 The repo organization should be fairly straightforward. Anyhow, "slides"
 are files in format::
 
